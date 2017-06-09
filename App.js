@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import Bananas from './Bananas.js';
 import BlinkText from './BlinkText.js';
 
 export default class App extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ''
+    };
+  }
 
   render() {
     const styles = StyleSheet.create({
@@ -26,11 +31,19 @@ export default class App extends React.Component {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'stretch',
+        alignItems: 'center',
       }}>
-        <View style={{height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{height: 50, backgroundColor: 'skyblue'}} />
-        <View style={{height: 50, backgroundColor: 'steelblue'}} />
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type here to translate"
+          onChangeText={text => this.setState({ text })}
+        />
+        <Text style={{padding: 10, fontSize: 42}}>
+          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+        </Text>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
