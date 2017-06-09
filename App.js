@@ -16,15 +16,15 @@ export default class App extends React.Component {
       },
       images: {
         width: 400,
-        height: 220
+        // height: 220
       }
     });
 
     return (
-      <View style={styles.container}>
-        <Bananas style={styles.images}/>
-        <BlinkText text='YOUR MOM' />
-        <Text>IS A KIND HUMAN</Text>
+      <View style={{height: 300}}>
+        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
